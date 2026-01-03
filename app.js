@@ -24,6 +24,10 @@ const messages = [
 app.get('/', (req, res) => {
     res.render('index', { title: 'Mini Messages', messages: messages });
 });
+
+app.get('/new', (req, res) => {
+    res.render('form');
+});
 app.post('/new', (req, res) => {
 
 });
@@ -32,6 +36,5 @@ app.listen(PORT, (err) => {
     if (err) {
         throw err;
     }
-
     console.log(`Server Running on port: ${PORT}`)
-})
+});
