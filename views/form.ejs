@@ -1,11 +1,11 @@
-<form action="POST" action="/new">
+<form method="POST" action="/new">
     <h1>Add a message!</h1>
-    <label for="name">Name
-        <input type="text">
+    <label for="messageUser">Name
+        <input name="messageUser" type="text">
     </label>
     </br>
-    <label for="message">Message
-        <textarea cols="20"></textarea>
+    <label for="messageText">Message
+        <textarea name="messageText" cols="20"></textarea>
     </label>
     </br>
     <button type="submit">Submit</button>

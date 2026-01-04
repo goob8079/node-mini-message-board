@@ -3,6 +3,7 @@
         <title><%= title %></title>
     </head>
     <body>
+        <button><a href="/new">Post a message</a></button>
         <div class="messagesContainer">
             <ul>
                 <% for (let i = 0; i < messages.length; i++) { %>
@@ -12,6 +13,7 @@
                         </strong>
                         By: <%= messages[i].user %> </br>
                         Date: <%= messages[i].added %>
+                        <button><a href="/message/<%= i %>">Open</a></button>
                     </li>
                     <% } %>
             </ul>
