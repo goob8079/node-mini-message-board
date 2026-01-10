@@ -6,13 +6,15 @@
         <title>Create a New Message</title>
     </head>
     <body>
-        <% if (errors) { %>
-            <ul>
-                <% errors.forEach(e => { %>
-                    <li><%= e.msg %></li>
-                <% }) %>
-            </ul>
-        <% } %>
+        <div>
+            <% if (errors) { %>
+                <ul>
+                    <% errors.forEach(e => { %>
+                        <li><%= e.msg %></li>
+                    <% }) %>
+                </ul>
+            <% } %>
+        </div>
         <form method="POST" action="/new">
             <h1>Add a message!</h1>
             <label for="username">Name</label>
@@ -23,5 +25,6 @@
             </br>
             <button type="submit">Submit</button>
         </form>
+        <a href="/">Back to messages</a>
     </body>
 </html>

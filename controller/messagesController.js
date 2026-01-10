@@ -2,13 +2,13 @@ const db = require("../db/queries");
 const { body, validationResult, matchedData } = require("express-validator");
 
 const usernameErr = 'Username must contain only letters, numbers, and underscores!';
-const usernameLenErr = 'Must be between 1 and 30 characters';
+const usernameLenErr = 'Username must be between 1 and 30 characters';
 const messageLenErr = 'Message must be between 1-300 characters!'
 
-const validateUsername = [
+const validateMessage = [
     body('username').trim()
         .matches(/^[a-zA-Z0-9_]+$/).withMessage(`${usernameErr}`)
-        .isLength({ min: 1, max: 30 }).withMessage(`Username ${usernameLenErr}`),
+        .isLength({ min: 1, max: 30 }).withMessage(`${usernameLenErr}`),
     body('message').trim()
         .isLength({ min: 1, max: 300 }).withMessage(`${messageLenErr}`),
 ];
@@ -22,7 +22,10 @@ async function messageHomepageGet(req, res) {
 }
 
 async function newMessageGet(req, res) {
-    res.render('form');
+    res.render('form', {
+        errors: [],
+        old: {},
+    });
 }
 
 async function newMessagePost(req, res) {
@@ -61,4 +64,5 @@ module.exports = {
     newMessageGet,
     newMessagePost,
     messagesByUsernameGet,
+    validateMessage,
 }
