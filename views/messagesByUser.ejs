@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Results</title>
+    </head>
+    <body>
+        <ul>
+            <% if (messages.length === 0) { %>
+                <li>No Messages found.</li>
+            <% } else { %>
+                <% messages.forEach(msg => { %>
+                    <li class="message">
+                        <strong>Username: </strong><%= msg.username %><br>
+                        <strong>Date: </strong><%= msg.added.toDateString() %><br>
+                        <strong>Message:</strong><br><%= msg.text %>
+                    </li>
+                <% }) %>
+            <% } %>
+        </ul>
+        <a href="/">Back to messages</a>
+    </body>
+</html>

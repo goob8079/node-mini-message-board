@@ -4,6 +4,10 @@
     </head>
     <body>
         <button><a href="/new">Post a message</a></button>
+        <form action="/message" method="GET">
+            <input type="text" name="username" placeholder="Search username">
+            <button type="submit">Search</button>
+        </form>
         <div class="messagesContainer">
             <ul>
                 <% if (messages.length === 0) { %>
@@ -11,9 +15,9 @@
                 <% } else { %>
                     <% messages.forEach(msg => { %>
                         <li class="message">
-                            Username: <%= msg.username %><br>
-                            Date: <%= msg.added.toDateString() %><br>
-                            Message:<br><%= msg.text %>
+                            <strong>Username: </strong><%= msg.username %><br>
+                            <strong>Date: </strong><%= msg.added.toDateString() %><br>
+                            <strong>Message:</strong><br><%= msg.text %>
                         </li>
                     <% }) %>
                 <% } %>

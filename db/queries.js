@@ -1,7 +1,7 @@
-const { pool } = require("./pool");
+const pool  = require("./pool");
 
 async function getMessages() {
-    const { rows } = await pool.query("SELECT * FROM messages ORDER BY added DESC, id DESC");
+    const { rows } = await pool.query("SELECT * FROM messages ORDER BY added");
     return rows;
 }
 
