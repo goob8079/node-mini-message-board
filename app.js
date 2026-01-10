@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require('node:path');
-
 const indexRouter = require('./routes/indexRouter');
+const http = require("http");
+const { neon } = require("@neondatabase/serverless");
+require('dotenv/config');
+
+const sql = neon(process.env.DATABASE_URL);
 
 const app = express();
 

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Messages</title>
+    </head>
+    <body>
+        <h1>Messages</h1>
+        <form action="/messages" method="GET">
+            <input type="text" name="username" placeholder="Search username">
+            <button type="submit">Search</button>
+        </form>
+        <% if (messages.length === 0) { %>
+            <p>No Messages found.</p>
+        <% } else { %>
+            <% messages.forEach(msg => { %>
+                <div class="message">
+                    <p>Username: <%= msg.username %></p>
+                    <p>Date: <%= msg.added.toDateString() %></p>
+                    <p><%= msg.text %></p>
+                </div>
+            <% }) %>
+        <% } %>
+        <a href="/">Back to messages</a>
+    </body>
+</html>

@@ -6,16 +6,17 @@
         <button><a href="/new">Post a message</a></button>
         <div class="messagesContainer">
             <ul>
-                <% for (let i = 0; i < messages.length; i++) { %>
-                    <li>
-                        <strong>
-                            Message: <%= messages[i].text %> </br>
-                        </strong>
-                        By: <%= messages[i].user %> </br>
-                        Date: <%= messages[i].added %>
-                        <button><a href="/message/<%= i %>">Open</a></button>
-                    </li>
-                    <% } %>
+                <% if (messages.length === 0) { %>
+                    <li>No Messages found.</li>
+                <% } else { %>
+                    <% messages.forEach(msg => { %>
+                        <li class="message">
+                            Username: <%= msg.username %><br>
+                            Date: <%= msg.added.toDateString() %><br>
+                            Message:<br><%= msg.text %>
+                        </li>
+                    <% }) %>
+                <% } %>
             </ul>
         </div>
     </body>
